@@ -1,0 +1,48 @@
+doctype html
+html
+	head
+		title #{ title }
+		link(rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css")
+		link(rel="stylesheet" href="/css/style.css")
+	body
+		nav.navbar.navbar-expand-lg.navbar-light.bg-warning.mb-4
+			a.navbar-brand(href='/') Musiqa proektim
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			#navbarSupportedContent.collapse.navbar-collapse
+			ul.navbar-nav.mr-auto
+				li.nav-item
+					a.nav-link(href='/')
+						| Bosh sahifa
+						span.sr-only (current)
+				li.nav-item
+					a.nav-link(href='music/add') Musiqa qo'shish
+			form.form-inline.my-2.my-lg-0
+				input.form-control.mr-sm-2(type='search', placeholder='Qidiruv', aria-label='Search')
+				button.btn.btn-dark.my-2.my-sm-0(type='submit') Qidirish
+			ul.nav.navbar-nav.navba-right
+				if user
+					li.nav-item
+						a.nav-link(href="/logout") Tizimdan chiqish
+				else
+					li.nav-item
+						a.nav-link(href="/login") Tizimga kirish
+					li.nav-item
+						a.nav-link(href="/register") Ro'yhatdan o'tish
+
+		.container
+			!= messages('message', locals)
+			if errors
+				each error, i in errors
+					div(class="alert alert-danger") #{error.msg}
+			block content
+			br
+			hr
+			footer
+				p Xizmatlar litsenziyalngan bratiwka &copy; 2020
+
+			script(src="/bower_components/jquery/dist/jquery.js")
+			script(src="/bower_components/jquery/dist/jquery.slim.js")
+			script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
+			script(src="/js/script.js")
+			script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js")

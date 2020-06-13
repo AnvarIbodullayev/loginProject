@@ -1,0 +1,10 @@
+.alert-error{
+	color: white;
+	border-color:none!important;
+	background: #d9534f;
+}
+.alert-success_msg{
+	color: white;
+	border-color:none!important;
+	background: #5cb85c;
+}

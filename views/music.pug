@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	div.m-5
+	.card.bg-primary.text-white.text-center.p-3
+		blockquote.blockquote.mb-0
+			h1= music.name
+			p= music.singer
+			footer.blockquote-footer.text-white
+				small= music.comment
+	br
+	a.btn.btn-dark.mr-2(href="/music/edit/" + music._id) edit
+	a.btn.btn-danger.killer(href="#", data-id=music._id ) O'chirish
